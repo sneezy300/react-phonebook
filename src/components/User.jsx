@@ -34,12 +34,14 @@ const User = (props) => {
                             <p>Address: {props.userInfo.address}</p>
                             <p>Type: {props.userInfo.type}</p>
                         </Card.Text>
-                        <Card.Link href="#" onClick={handleShow}>Edit</Card.Link>
+                        <Card.Link href="#">
+                            <Button variant="primary" size="sm" onClick={handleShow}>Edit</Button></Card.Link>
+
                         <Card.Link href="#">
                             <Button variant="danger" size="sm" onClick={handleDelete}>Delete</Button></Card.Link>
                     </Card.Body>
                 </Card>
-            </Col>
+            </Col >
         </>
     );
 }

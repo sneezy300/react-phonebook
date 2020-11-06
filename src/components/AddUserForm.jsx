@@ -46,7 +46,7 @@ class AddUserForm extends Component {
 
                 <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>Type</Form.Label>
-                    <Form.Control as="select" defaultValue="Choose...">
+                    <Form.Control as="select" defaultValue="Choose..." name="type" value={this.state.type} onChange={this.handleChange}>
                         <option>Family</option>
                         <option>Friend</option>
                         <option>Co-worker</option>
