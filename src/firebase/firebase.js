@@ -1,3 +1,6 @@
+import firebase from "firebase/app"
+import "firebase/firestore"
+import { firestoreConnect } from "react-redux-firebase";
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyB7g7BsxZhr2j3vhTBVCes8PAV86I_lsNw",
@@ -9,3 +12,8 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+firebase.firestore();
+
+
+
+export default firebase;
