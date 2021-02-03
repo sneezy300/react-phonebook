@@ -11,16 +11,19 @@ const initialState = {
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case "ADD_USER":
-            const newUser = {
-                name: action.payload.name,
-                phone: action.payload.phone,
-                address: action.payload.address,
-                type: action.payload.type
+
+            return { ...state, users: [...state.users, action.payload] };
+        case "DELETE_USER":
+            let undeletedUsers = state.users.filter((user) => user.id !== action.payload)
+            return { ...state, users: undeletedUsers }
+        case "EDIT_USER":
+            return {
+                ...state, users: state.users.map((user) =>
+                    user.id === action.payload.id ? action.payload : user)
             };
-            return { ...state, users: [...state.users, newUser] }
         default:
             return state;
-    }
+    };
 
 };
 export default usersReducer;

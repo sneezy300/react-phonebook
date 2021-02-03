@@ -3,42 +3,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import Users from './components/Users';
 import './App.css';
+import { connect } from 'react-redux'
+
 import AddUserForm from './components/AddUserForm';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: [
-        {
-          name: "Nan Antwi",
-          phone: "0242082528",
-          address: "D12 Mallam",
-          type: "friends",
-          id: "vbb1"
-        },
 
-      ]
-    }
-  }
-  addNewUser = (user) => {
-    user.id = Math.random().toString()
-    this.setState({
-      users: [...this.state.users, user]
-    })
-  }
-  deleteUser = (id) => {
-    let undeletedUsers = this.state.users.filter((user) => user.id !== id)
-    this.setState({
-      users: undeletedUsers,
-    })
-  }
-  editUser = (id, updatedUser) => {
-    this.setState({
-      users: this.state.users.map((user => user.id === id ? updatedUser : user)
-      ),
-    })
-  }
+  // addNewUser = (user) => {
+  //   user.id = Math.random().toString()
+  //   this.setState({
+  //     users: [...this.state.users, user]
+  //   })
+  // }
+  // deleteUser = (id) => {
+  //   let undeletedUsers = this.state.users.filter((user) => user.id !== id)
+  //   this.setState({
+  //     users: undeletedUsers,
+  //   })
+  // }
+  // editUser = (id, updatedUser) => {
+  //   this.setState({
+  //     users: this.state.users.map((user => user.id === id ? updatedUser : user)
+  //     ),
+  //   });
+  // }
   render() {
     return (
       <>
@@ -47,7 +35,7 @@ class App extends Component {
             <Col md="4">
               <h4>ADD CONTACT</h4>
               <br />
-              <AddUserForm addUser={this.addNewUser} />
+              <AddUserForm />
             </Col>
 
             <Col>
@@ -63,4 +51,7 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  users: state.users
+})
+export default connect(mapStateToProps)(App);
