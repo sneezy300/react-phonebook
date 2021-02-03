@@ -1,4 +1,5 @@
 export const addUser = (newUser) => {
+    newUser.id = Math.random().toString();
     return {
 
         type: 'ADD_USER',
@@ -10,8 +11,8 @@ export const addUser = (newUser) => {
 //action creater for deleting user
 export const deleteUser = (userId) => {
     return {
-        type: "DELETE-USER",
-        payload: userId,
+        type: "DELETE_USER",
+        payload: userId
     }
 }
 

@@ -41,7 +41,7 @@ class App extends Component {
             <Col>
               <h4>PHONE BOOK</h4>
               <br />
-              <Users usersData={this.state.users} deleteUser={this.deleteUser} editUser={this.editUser} />
+              <Users />
             </Col>
 
           </Row>
