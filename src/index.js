@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
 import thunk from "redux-thunk";
 import usersReducer from './reducers/usersReducer';
 import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux'
 
 const store = createStore(usersReducer, applyMiddleware(thunk))
 
