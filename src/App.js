@@ -4,7 +4,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Users from './components/Users';
 import './App.css';
 import { connect } from 'react-redux'
-
 import AddUserForm from './components/AddUserForm';
 
 class App extends Component {
